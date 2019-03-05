@@ -1,0 +1,23 @@
+{
+  "name": "ix_clothing",
+  "version": "1.0.0",
+  "description": "Programming Assessment 2 18/19",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Und3rc0v3r/IX_Clothing.git"
+  },
+  "author": "jmqb44",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Und3rc0v3r/IX_Clothing/issues"
+  },
+  "homepage": "https://github.com/Und3rc0v3r/IX_Clothing#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

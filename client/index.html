@@ -2,29 +2,23 @@
 <html style="scroll-behavior: smooth;">
 
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<title>IX Clothing</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="Programming Coursework in p.5 Js" content="">
 
-
-
-	<!-- grayscale bootstrap fonts & styles -->
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	<link href="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://und3rc0v3r.github.io/TeleportationGraphic/lib/css/grayscale.min.css" rel="stylesheet">
-	<link href="https://und3rc0v3r.github.io/TeleportationGraphic/lib/css/customcss.css" rel="stylesheet">
+	<!-- <link href="https://und3rc0v3r.github.io/TeleportationGraphic/lib/css/customcss.css" rel="stylesheet"> -->
 
 
 	<!-- scripts for bootstrap and als jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!--<script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/grayscale.js"></script>-->
-	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/customjs.js"></script>
+	<!-- <script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/customjs.js"></script> -->
+	<script src="index.js"></script>
 </head>
 
 <body id="page-top">
@@ -40,14 +34,8 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#Clothing" style="color: white;">Clothing</a>
+						 <a class="nav-link js-scroll-trigger" href="#Clothing" style="color: white;">Clothing</a> <!--TODO Make link switch to respective view on the single page when clicked -->
 					</li>
-					<!--<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#Jeans" style="color: white;">Jeans</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" href="#Tracksuits" style="color: white;">Tracksuits</a>
-					</li>-->
 					<li class="nav-item">
 						<a class="nav-link js-scroll-trigger" href="#Gallery" style="color: white;">Gallery</a>
 					</li>
@@ -69,40 +57,53 @@
 			<div class="mx-auto text-center">
 				<h1 class="mx-auto my-0 text-uppercase">IX Clothing</h1>
 				<h2 class="text-white-50 mx-auto mt-2 mb-5">A Responsive Concept Page</h2>
-				<a href="#Tops" class="btn btn-primary js-scroll-trigger">Preview</a>
+				<a href="#Clothing" class="btn btn-primary js-scroll-trigger">Preview</a>
 			</div>
 		</div>
 	</header>
 
 
-	<section id="Clothing" class="projects-section bg-light">
-		
-		<div class="row align-items-center no-gutters mb-4 mb-lg-5">
-			<div class="col-l-5 col-lg-2"> <h2> Clothing </h2></div>
-			<div class="col-xl-4 col-lg-5">
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false">
-						Items
-					</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
+	<section id="Clothing" class="projects-section bg-light" style="height: 100vh;">
+		<h1 id="viewTitle"> Clothing </h2>
+			<span class="dropdown">
+				<a class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Clothing Type 
+					<span class="caret">
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#Clothing" onclick='changeClothingCat("Top")'> Top </a></li>
+					<li><a href="#Clothing" onclick='changeClothingCat("Jeans")'> Jeans </a></li>
+					<li><a href="#Clothing" onclick='changeClothingCat("Tracksuit")'> Tracksuit </a></li>
+				</ul>
+			</span>
+
+			<div class="row" id="clothingContainer">
+				<!-- <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 col-xl-3">
+					<div id="template for img" class="row text-center" style="background-color: rgb(190, 190, 216);">
+							<div class="col" style="background-color: rgb(95, 236, 236);">
+								<img src="resources/Jeans_Image.jpg" class="img-fluid img-thumbnail" alt="Responsive image">
+							</div>
+							<div class="w-100"></div>
+							<div class="col" style="background-color: rgb(221, 235, 146);">price</div>
+							<div class="w-100"></div>
+							<div class="col" style="background-color: rgb(240, 138, 54);">desc</div>
 					</div>
-				</div>	
-			</div>
-			<!--
-				<img class="img-fluid mb-3 mb-lg-0" src="resources/Top_Image.jpg" alt="">
-			
-			<div class="col-xl-4 col-lg-5">
-				<div class="featured-text text-center text-lg-left">
-					<h4>Tops</h4>
-					<p class="text-black-50 mb-0">This is a T-Shirt. It is Black.
-					</p>
 				</div>
-			</div>-->
-		</div>
+				<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 col-xl-3">
+					<div id="template for img" class="row text-center" style="background-color: rgb(190, 190, 216);">
+							<div class="col" style="background-color: rgb(95, 236, 236);">
+								<img src="resources/Top_Image.jpg" class="img-fluid img-thumbnail" alt="Responsive image">
+							</div>
+							<div class="w-100"></div>
+							<div class="col" style="background-color: rgb(221, 235, 146);">price</div>
+							<div class="w-100"></div>
+							<div class="col" style="background-color: rgb(240, 138, 54);">desc</div>
+					</div>
+				</div> -->
+
+
+
+
+			</div>
 	</section>
 	<!--<section id="Jeans" class="projects-section bg-dark">
 			<div class="row align-items-center no-gutters mb-4 mb-lg-5">
@@ -142,6 +143,7 @@
 	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/grayscale.min.js"></script>
 	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/jquery/jquery.min.js"></script>
+	<script src="index.js"></script>
 </body>
 
 </html>

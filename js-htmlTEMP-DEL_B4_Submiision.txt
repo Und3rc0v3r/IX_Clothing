@@ -1,0 +1,19 @@
+Clothing Section
+"<section id=\"Clothing\" class=\"projects-section bg-light\" style=\"height: 100vh;\">	<div class=\"container\"> <h1> Clothing </h2> <span class=\"dropdown\"> <a class=\"dropdown-toggle btn btn-default\" data-toggle=\"dropdown\" role=\"button\"aria-haspopup=\"true\" aria-expanded=\"false\"> Clothing Type	<span class=\"caret\"> </a><ul class=\"dropdown-menu\"> <li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Top\")\'> Top </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Jeans\")'> Jeans </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Tracksuit\")\'> Tracksuit </a></li></ul></span><div class=\"row\" id=\"clothingContainer\"></div></div></section>"
+
+
+Clothing Card/thumbnail
+"<div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3 col-xl-3\"> 	<div class=\"row text-center\" style=\"background-color: rgb(190, 190, 216);\">  <div class=\"col\" style=\"background-color: rgb(95, 236, 236);\">	<img src=\"" + c.url + "\" class=\"img-fluid img-thumbnail\" alt=\"Responsive image\">	</div>	<div class=\"w-100\"></div>			<div class=\"col\" style=\"background-color: rgb(221, 235, 146);\"> " + c.price + "</div>		<div class=\"w-100\"></div>			<div class=\"col\" style=\"background-color: rgb(240, 138, 54);\">" + c.description + "</div>	</div>	</div>";
+
+carouselindicator
+active
+"<li data-target=\"#gallery-carousel\" data-slide-to=\"0\" class=\"active\"></li>"
+
+carouselItem
+"<div class=\"carousel-item active\">
+<img class=\"d-block w-100\" src=\"resources/Gallery_img1.jpg\" alt=\"First slide\">
+<div class=\"carousel-caption d-none d-md-block\">
+		<h5>1</h5>
+		<p>lorem uipsoms</p>
+	  </div>
+</div>"

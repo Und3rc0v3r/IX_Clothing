@@ -48,12 +48,17 @@
 							style="color: white;">Gallery</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" onclick='loadCalendarSection()' href="#Calendar"
-							style="color: white;">Calendar</a>
+						<a class="nav-link js-scroll-trigger" onclick='loadContactSection()' href="#Contact"
+							style="color: white;">Contact</a>
 					</li>
 
+					<!-- <li class="nav-item">
+							<a class="nav-link js-scroll-trigger" onclick='loadCalendarSection()' href="#Calendar"
+								style="color: white;">Calendar</a>
+					</li> -->
+
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" style="color: white;"
+						<a class="nav-link" style="color: white;"
 							href="https://github.com/Und3rc0v3r/IX_Clothing">Github</a>
 					</li>
 				</ul>
@@ -68,7 +73,8 @@
 			<div class="mx-auto text-center">
 				<h1 class="mx-auto my-0 text-uppercase">IX Clothing</h1>
 				<h2 class="text-white-50 mx-auto mt-2 mb-5">A Responsive Concept Page</h2>
-				<a href="#Clothing" class="btn btn-primary js-scroll-trigger">Preview</a>
+				<a href="#Clothing" onclick='loadClothingSection()'
+					class="btn btn-primary js-scroll-trigger">Preview</a>
 			</div>
 		</div>
 	</header>
@@ -96,38 +102,16 @@
 			</div>
 		</section> -->
 
-		<section id="Gallery" class="projects-section bg-dark"
+		<!-- <section id="Gallery" class="projects-section bg-dark"
 			style="height: calc(100vh - 60px);padding-left: 20%; padding-right: 20%; padding-top: 5%;">
 			<div class="container">
 				<h1 style="color:#f8f9fa; " > Gallery </h1>
 				<div id="gallery-carousel" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators" id="pos-indicators">
-						<!-- <li data-target="#gallery-carousel" data-slide-to="0" class="active"></li>
-							<li data-target="#gallery-carousel" data-slide-to="1"></li>
-							<li data-target="#gallery-carousel" data-slide-to="2"></li> -->
+
 					</ol>
 					<div class="carousel-inner" id="carousel-inner">
-						<!-- <div class="carousel-item active">
-								<img class="d-block w-100" src="resources/Gallery_img1.jpg" alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
-										<h5>1</h5>
-										<p>lorem uipsoms</p>
-									  </div>
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="resources/Gallery_img1.jpg" alt="Second slide">
-								<div class="carousel-caption d-none d-md-block">
-										<h5>2</h5>
-										<p>lorem</p>
-									  </div>
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="resources/Gallery_img1.jpg" alt="Third slide">
-								<div class="carousel-caption d-none d-md-block">
-										<h5>3</h5>
-										<p>Lorem impsumsa</p>
-									  </div>
-							</div> -->
+
 					</div>
 					<a class="carousel-control-prev" href="#gallery-carousel" role="button" data-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -141,10 +125,63 @@
 
 			</div>
 
-		</section>
+		</section> -->
 		<!-- <section id="Calendar" class="projects-section bg-light">
 	</section> -->
+
+
+
+
+
+
+
+
 	</div>
+	<section  id="Contact" class="contact-section bg-black">
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-4 mb-3 mb-md-0">
+						<div class="card py-4 h-100">
+							<div class="card-body text-center">
+								<i class="fas fa-map-marked-alt text-primary mb-2"></i>
+								<h4 class="text-uppercase m-0">Github</h4>
+								<hr class="my-4">
+								<div class="small text-black-50">
+
+										<a href="https://github.com/Und3rc0v3r/IX_Clothing">UND3RC0V3R - Clothing.IX</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 mb-3 mb-md-0">
+						<div class="card py-4 h-100">
+							<div class="card-body text-center">
+								<i class="fas fa-envelope text-primary mb-2"></i>
+								<h4 class="text-uppercase m-0">Quick about</h4>
+								<hr class="my-4">
+								<div class="small text-black-50">
+										Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side, he could even keep the ones he cared about from dying. 
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4 mb-3 mb-md-0">
+						<div class="card py-4 h-100">
+							<div class="card-body text-center">
+								<i class="fas fa-mobile-alt text-primary mb-2"></i>
+								<h4 class="text-uppercase m-0">CIS Username</h4>
+								<hr class="my-4">
+								<div class="small text-black-50">jmqb44</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script

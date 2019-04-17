@@ -110,24 +110,34 @@ function populateCarousel(gList) {
 
 function loadClothingSection() {
 	//Loads the clothing section
-	removeElement("Gallery");
-	removeElement("Calendar");
+	emptySectionContainer();
 	//here i have the html of the section and will pass it to the element cration function
-	var rawhtml = "<section id=\"Clothing\" class=\"projects-section bg-light\" style=\"height: 100vh;\">	<div class=\"container\"> <h1> Clothing </h2> <span class=\"dropdown\"> <a class=\"dropdown-toggle btn btn-default\" data-toggle=\"dropdown\" role=\"button\"aria-haspopup=\"true\" aria-expanded=\"false\"> Clothing Type	<span class=\"caret\"> </a><ul class=\"dropdown-menu\"> <li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Top\")\'> Top </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Jeans\")'> Jeans </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Tracksuit\")\'> Tracksuit </a></li></ul></span><div class=\"row\" id=\"clothingContainer\"></div></div></section>";
+	var rawhtml = "<section id=\"Clothing\" class=\"projects-section bg-light\" style=\"height: 100vh; overflow: auto;\">	<div class=\"container\"> <h1> Clothing </h2> <span class=\"dropdown\"> <a class=\"dropdown-toggle btn btn-default\" data-toggle=\"dropdown\" role=\"button\"aria-haspopup=\"true\" aria-expanded=\"false\"> Clothing Type	<span class=\"caret\"> </a><ul class=\"dropdown-menu\"> <li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Top\")\'> Top </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Jeans\")'> Jeans </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Tracksuit\")\'> Tracksuit </a></li></ul></span><div class=\"row\" id=\"clothingContainer\"></div></div></section>";
 	addElement("sections-container", "section", "Clothing", rawhtml);
 }
 
-
 function loadGallerySection() {
 	//loads the gallery section
-	removeElement("Calendar");
-	removeElement("Clothing");
+	emptySectionContainer();
+	var rawhtml = "<section id=\"Gallery\" class=\"projects-section bg-dark\"	style=\"height: calc(100vh - 60px);padding-left: 20%; padding-right: 20%; padding-top: 5%;\">	<div class=\"container\">		<h1 style=\"color:#f8f9fa;\" > Gallery </h1>		<div id=\"gallery-carousel\" class=\"carousel slide\" data-ride=\"carousel\">			<ol class=\"carousel-indicators\" id=\"pos-indicators\"></ol>			<div class=\"carousel-inner\" id=\"carousel-inner\"></div>			<a class=\"carousel-control-prev\" href=\"#gallery-carousel\" role=\"button\" data-slide=\"prev\">				<span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>				<span class=\"sr-only\">Previous</span>			</a>			<a class=\"carousel-control-next\" href=\"#gallery-carousel\" role=\"button\" data-slide=\"next\">				<span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>				<span class=\"sr-only\">Next</span>			</a>		</div>	</div>	</section>";
+
+	addElement("sections-container","section", "Gallery", rawhtml);
 	populateCarousel(galleryList);
+
+}
+
+function loadContactSection() {
+
 
 }
 
 function loadCalendarSection() {
 	//loads the calendar section
+	emptySectionContainer();
+}
+
+
+function emptySectionContainer() {
 	removeElement("Clothing");
 	removeElement("Gallery");
 

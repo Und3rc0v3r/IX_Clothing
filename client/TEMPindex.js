@@ -1,8 +1,16 @@
 /* eslint-disable quotes */
-let dropdown = document.getElementById("iType-dropdown");
 
-const url = "http://localhost:8090/itemtypes";
-var ddContent = "hg";
+
+function getClothing(type) {
+	fetch('http://localhost:8090/clothing',
+		{
+			method: "GET",
+			headers: { "Content-Type": "application/json", }
+		})
+		.then(response => response.text())
+		.then(body =>
+			document.getElementById('content').innerHTML = body);
+}
 
 
 
@@ -18,16 +26,16 @@ function populateDropdown() {
 	//var respLo;
 	fetch("http://localhost:8090/itemtypes")
 		.then(response => response.json())
-		.then(function(data) {
+		.then(function (data) {
 			var menuHtml = "<span class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle btn btn-default\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> Clothing Type <span class=\"caret\"></span></a><ul class=\"dropdown-menu\">";
 			for (var i = 0; i < data.length; i++) {
-				menuHtml += '<li><a onclick="call(' + i + ')" href="#">' + data[i].type + '</a></li>';
+				menuHtml += `<li><a onclick='changeClothingCat("${data[i].id}")' href='#Clothing'> ${data[i].display_name} </a></li>`;
 			}
-			menuHtml +=  '</ul></span>';
+			menuHtml += '</ul></span>';
 			document.getElementById("optionscontainer").innerHTML = menuHtml;
 
 		});
-		
+
 
 	// var menuHtml = "<span class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle btn btn-default\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> Clothing Type <span class=\"caret\"></span></a><ul class=\"dropdown-menu\">";
 	// for (var i = 0; i < respLo.length; i++) {

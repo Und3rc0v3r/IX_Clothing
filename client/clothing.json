@@ -1,0 +1,93 @@
+[
+	{
+		"id": "1",
+		"name":"White Tee",
+		"type":"Top",
+		"url":"resources/white-tshirt-template.jpg",
+		"description":"Plain White T-Shirt",
+		"price":"10.00"
+	  },
+
+	  {
+		"id": "2",
+		"name":"Green Tee",
+		"type":"Top",
+		"url":"resources/green-t-shirt.jpg",
+		"description":"Plain Green T-Shirt",
+		"price":"10.00"
+	  },
+
+	  {
+		"id": "3",
+		"name":"Blue Tee",
+		"type":"Top",
+		"url":"resources/blue-t-shirt.jpg",
+		"description":"Plain Blue T-Shirt",
+		"price":"10.00"
+	  },
+
+	  {
+		"id": "4",
+		"name":"Purple Tee",
+		"type":"Top",
+		"url":"resources/purple-t-shirt.jpg",
+		"description":"Plain Purple T-Shirt",
+		"price":"10.00"
+	  },
+
+	  {
+		"id": "5",
+		"name":"Red Tee",
+		"type":"Top",
+		"url":"resources/red-t-shirt.jpg",
+		"description":"Plain Red T-Shirt",
+		"price":"10.00"
+	  },
+
+	  {
+		"id": "6",
+		"name":"Teal Tee",
+		"type":"Top",
+		"url":"resources/teal-t-shirt.jpg",
+		"description":"Plain Teal T-Shirt",
+		"price":"10.00"
+	  },
+
+	  {
+		"id": "7",
+		"name":"Black Tee",
+		"type":"Top",
+		"url":"resources/black-t-shirt.jpg",
+		"description":"Plain Black T-Shirt",
+		"price":"10.00"
+	  },
+
+	  {
+		"id": "8",
+		"name":"Blue Jeans",
+		"type":"Jeans",
+		"url":"resources/blue-jeans.jpg",
+		"description":"Dark  & Light Blue Jeans",
+		"price":"35.00"
+	  },
+
+	  {
+		"id": "9",
+		"name":"",
+		"type":"",
+		"url":"",
+		"description":"",
+		"price":""
+	  },
+
+	  {
+		"id": "10",
+		"name":"",
+		"type":"",
+		"url":"",
+		"description":"",
+		"price":""
+	  }
+	]
+
+

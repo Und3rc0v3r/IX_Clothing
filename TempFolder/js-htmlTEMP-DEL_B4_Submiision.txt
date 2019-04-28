@@ -39,3 +39,32 @@ style=\"height: calc(100vh - 60px);padding-left: 20%; padding-right: 20%; paddin
 	</div>
 </div>
 </section>"
+
+
+
+	//   {
+	// 	"id": "11",
+	// 	"name":"",
+	// 	"type":"",
+	// 	"url":"",
+	// 	"description":"",
+	// 	"price":""
+	//   },
+
+	//   {
+	// 	"id": "12",
+	// 	"name":"",
+	// 	"type":"",
+	// 	"url":"",
+	// 	"description":"",
+	// 	"price":""
+	//   },
+
+	//   {
+	// 	"id": "13",
+	// 	"name":"",
+	// 	"type":"",
+	// 	"url":"",
+	// 	"description":"",
+	// 	"price":""
+	//   }

@@ -1,13 +1,10 @@
+/* eslint-disable no-console */
 /* eslint-disable quotes */
-//TEST TEST TTEST TEST TEST TEST TEAST TEST TREST TEST TEST TEST TEST//
-//This is the Dev Branch//
-
-
 //Production Version
-//const fetchUrl = "https://ixclothing.herokuapp.com";
+const fetchUrl = "https://ixclothing.herokuapp.com";
 
 //Dev & Local version
-const fetchUrl = "http://localhost:8090";
+//const fetchUrl = "http://localhost:8090";
 
 
 function getClothingList(type) {
@@ -64,7 +61,6 @@ function populateClothingDropdown() {
 				menuHtml += `<li><a onclick='changeClothingCat("${data[i].id}")' href='#Clothing'> ${data[i].display_name} </a></li>`;
 			}
 			menuHtml += '</ul></span>';
-			//document.getElementById("optionscontainer").innerHTML = menuHtml;
 
 			addElement("optionscontainer", "span", "optionscontainer", menuHtml);
 
@@ -117,23 +113,12 @@ function populateCarousel(gList) {
 function changeClothingCat(choice) {
 	var element = document.getElementById("clothingContainer");
 	element.innerHTML = "Unfortunately, we have none of this category onsale";
-	//var clothingListPromise = getClothingList(choice);
-	// getClothingList(choice).then(response => clothingList = response);
-	// console.log(clothingList);
+
 	//the following cases check what the passed param is and changes the content of the section based on that
 	getClothingList(choice).then(function (clothingList) {
-		// if (choice == "top") {
 		element.innerHTML = populateGrid(clothingList);
 		return;
-		// }
-		// if (choice == "jeans") {
-		// 	element.innerHTML = populateGrid(jeansList);
-		// 	return;
-		// }
-		// if (choice == "jumpers") {
-		// 	element.innerHTML = "Sorry Buddy";
-		// 	return;
-		// }
+
 	});
 }
 
@@ -141,7 +126,6 @@ function loadClothingSection() {
 	//Loads the clothing section
 	emptySectionContainer();
 	//here i have the html of the section and will pass it to the element cration function
-	//var rawhtml = "<section id=\"Clothing\" class=\"projects-section bg-light\" style=\"height: 100vh; overflow: auto;\">	<div class=\"container\"> <h1> Clothing </h2> <span class=\"dropdown\"> <a class=\"dropdown-toggle btn btn-default\" data-toggle=\"dropdown\" role=\"button\"aria-haspopup=\"true\" aria-expanded=\"false\"> Clothing Type	<span class=\"caret\"> </a><ul class=\"dropdown-menu\"> <li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Top\")\'> Top </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Jeans\")'> Jeans </a></li><li><a href=\"#Clothing\" onclick=\'changeClothingCat(\"Tracksuit\")\'> Tracksuit </a></li></ul></span><div class=\"row\" id=\"clothingContainer\"></div></div></section>";
 	var rawhtml = `<section id="Clothing" class="projects-section bg-light" style="height: 100vh; overflow: auto;">	<div class="container">		<h1> Clothing </h1>			<div id="optionscontainer"></div>			<div class="row" id="clothingContainer"></div>	</div></section>`;
 	addElement("sections-container", "section", "Clothing", rawhtml);
 	populateClothingDropdown();

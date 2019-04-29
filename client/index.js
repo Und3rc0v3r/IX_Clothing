@@ -1,56 +1,19 @@
 /* eslint-disable quotes */
-//TEST TEST TTEST TEST TEST TEST TEAST TEST TREST TEST TEST TEST TEST
+//TEST TEST TTEST TEST TEST TEST TEAST TEST TREST TEST TEST TEST TEST//
+//This is the Dev Branch//
 
 
-var top = new Object();
-var jeans = new Object();
-var tracksuit = new Object();
-var jumper = new Object();
+//Production Version
+//const fetchUrl = "https://ixclothing.herokuapp.com";
 
+//Dev & Local version
+const fetchUrl = "http://localhost:8090";
 
-top.url = "resources/red-t-shirt.jpg";
-jeans.url = "resources/blue-jeans.jpg";
-tracksuit.url = "C:/Source/UniDur/IX_Clothing/client/resources/Tracksuit_Image.jpg";
-jumper.url = "resources/masthead_img.jpg";
-
-top.price = 55;
-jeans.price = 60;
-tracksuit.price = 65;
-jumper.price = 70;
-
-top.description = "lorem ipsum";
-jeans.description = "lorem ipsum1";
-tracksuit.description = "lorem ipsum2";
-jumper.description = "lorem ipsum3";
-
-
-var topList = [top, top, top, top, top, top, top, top];
-var jeansList = [jeans, jeans, jeans, jeans, jeans, jeans];
-
-var gallery = {
-	imgUrl: "resources/Gallery_img1.jpg",
-	itmsWorn: [{ "name": "", "type": "" }]
-};
-var first, second, third;
-first = gallery;
-second = gallery;
-third = gallery;
-
-first.itmsWorn[0].name = "First";
-first.itmsWorn[0].type = "Top";
-second.itmsWorn[0].name = "Second";
-second.itmsWorn[0].type = "Jeans";
-third.itmsWorn[0].name = "Third";
-third.itmsWorn[0].type = "Trackkies";
-
-var galleryList = [first, second, third];
-
-//window.onload = populateCarousel(galleryList);
 
 function getClothingList(type) {
 
 	return (
-		fetch(`http://localhost:8090/clothing?type=${type}`,
+		fetch(`${fetchUrl}/clothing?type=${type}`,
 			{
 				method: "GET",
 				headers: { "Content-Type": "application/json", }
@@ -73,7 +36,7 @@ function getClothingList(type) {
 function getGalleryList() {
 
 	return (
-		fetch(`http://localhost:8090/gallery`,
+		fetch(`${fetchUrl}/gallery`,
 			{
 				method: "GET",
 				headers: { "Content-Type": "application/json", }
@@ -93,7 +56,7 @@ function getGalleryList() {
 }
 
 function populateClothingDropdown() {
-	fetch("http://localhost:8090/itemtypes")
+	fetch(`${fetchUrl}/itemtypes`)
 		.then(response => response.json())
 		.then(function (data) {
 			var menuHtml = "<span class=\"dropdown\"><a href=\"#\" class=\"dropdown-toggle btn btn-default\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\"> Clothing Type <span class=\"caret\"></span></a><ul class=\"dropdown-menu\">";

@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Und3rc0v3r/IX_Clothing#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "node-fetch": "^2.4.1"
+	"node-fetch": "^2.4.1",
+	"nodemon": "^1.18.11"
   },
   "devDependencies": {
     "nodemon": "^1.18.11"

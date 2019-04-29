@@ -73,11 +73,11 @@
 
 	  {
 		"id": "9",
-		"name":"",
-		"type":"",
-		"url":"",
-		"description":"",
-		"price":""
+		"name":"Black Jeans",
+		"type":"Jeans",
+		"url":"resources/black-jeans.jpg",
+		"description":"Jet Black Jeans",
+		"price":"35.00"
 	  },
 
 	  {

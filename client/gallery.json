@@ -1,0 +1,47 @@
+[
+	{
+	  "id": 0,
+	  "items_worn": [
+		{
+		  "name": "Black Tee",
+		  "id": "7"
+		},
+		{
+		  "name": "Black Jeans",
+		  "id": "9"
+		}
+	  ],
+	  "url": "resources/galleryimg0.jpg",
+	  "description": "A model showcasing prospective items"
+	},
+	{
+	  "id": 1,
+	  "items_worn": [
+		{
+		  "name": "Blue Jeans",
+		  "id": "8"
+		},
+		{
+		  "name": "White Tee",
+		  "id": "1"
+		}
+	  ],
+	  "url": "resources/galleryimg1.jpg",
+	  "description": "A model showcasing prospective items"
+	},
+	{
+	  "id": 2,
+	  "items_worn": [
+		{
+		  "name": "Teal Tee",
+		  "id": "6"
+		},
+		{
+		  "name": "Blue Jeans(Dark)",
+		  "id": "8"
+		}
+	  ],
+	  "url": "resources/galleryimg2.jpg",
+	  "description": "A model showcasing prospective items"
+	}
+  ]

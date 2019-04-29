@@ -18,17 +18,24 @@
 
 	<!-- scripts for bootstrap and als jquery -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<!--<script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/grayscale.js"></script>-->
 	<!-- <script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/customjs.js"></script> -->
 	<script src="index.js"></script>
+
+
+
+	<!-- Google Authentication -->
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 
 <body id="page-top">
 	<!-- Navigation bar-->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
-		style="background: black; color: white; max-height: 60px;" id="mainNav">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: black; color: white;" id="mainNav">
 		<div class="container" style="color: white;">
 			<a class="navbar-brand js-scroll-trigger" href="#page-top" style="color: white;">IX Clothing</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -53,15 +60,11 @@
 							style="color: white;">Contact</a>
 					</li>
 
-					<!-- <li class="nav-item">
-							<a class="nav-link js-scroll-trigger" onclick='loadCalendarSection()' href="#Calendar"
-								style="color: white;">Calendar</a>
-					</li> -->
-
 					<li class="nav-item">
-						<a class="nav-link" style="color: white;"
-							href="https://github.com/Und3rc0v3r/IX_Clothing">Github</a>
+						<a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#membersAreaModal"
+							style="color: darkslategray;">Member Area</a>
 					</li>
+
 				</ul>
 			</div>
 		</div>
@@ -81,108 +84,100 @@
 	</header>
 
 	<div id="sections-container">
-		<!-- <section id="Clothing" class="projects-section bg-light" style="height: 100vh;">
-			<div class="container">
-				<h1 id="viewTitle"> Clothing </h2>
-					<span class="dropdown">
-						<a class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
-							aria-haspopup="true" aria-expanded="false"> Clothing Type
-							<span class="caret">
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="#Clothing" onclick='changeClothingCat("Top")'> Top </a></li>
-							<li><a href="#Clothing" onclick='changeClothingCat("Jeans")'> Jeans </a></li>
-							<li><a href="#Clothing" onclick='changeClothingCat("Tracksuit")'> Tracksuit </a></li>
-						</ul>
-					</span>
-
-					<div class="row" id="clothingContainer">
-
-
-					</div>
-			</div>
-		</section> -->
-
-		<!-- <section id="Gallery" class="projects-section bg-dark"
-			style="height: calc(100vh - 60px);padding-left: 20%; padding-right: 20%; padding-top: 5%;">
-			<div class="container">
-				<h1 style="color:#f8f9fa; " > Gallery </h1>
-				<div id="gallery-carousel" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators" id="pos-indicators">
-
-					</ol>
-					<div class="carousel-inner" id="carousel-inner">
-
-					</div>
-					<a class="carousel-control-prev" href="#gallery-carousel" role="button" data-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#gallery-carousel" role="button" data-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
-					</a>
-				</div>
-
-			</div>
-
-		</section> -->
-		<!-- <section id="Calendar" class="projects-section bg-light">
-	</section> -->
-
-
-
-
-
-
-
-
 	</div>
-	<section  id="Contact" class="contact-section bg-black">
-			<div class="container">
+	<section id="Contact" class="contact-section bg-black">
+		<div class="container">
 
-				<div class="row">
+			<div class="row">
 
-					<div class="col-md-4 mb-3 mb-md-0">
-						<div class="card py-4 h-100">
-							<div class="card-body text-center">
-								<i class="fas fa-map-marked-alt text-primary mb-2"></i>
-								<h4 class="text-uppercase m-0">Github</h4>
-								<hr class="my-4">
-								<div class="small text-black-50">
+				<div class="col-md-4 mb-3 mb-md-0">
+					<div class="card py-4 h-100">
+						<div class="card-body text-center">
+							<i class="fas fa-map-marked-alt text-primary mb-2"></i>
+							<h4 class="text-uppercase m-0">Github</h4>
+							<hr class="my-4">
+							<div class="small text-black-50">
 
-										<a href="https://github.com/Und3rc0v3r/IX_Clothing">UND3RC0V3R - Clothing.IX</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 mb-3 mb-md-0">
-						<div class="card py-4 h-100">
-							<div class="card-body text-center">
-								<i class="fas fa-envelope text-primary mb-2"></i>
-								<h4 class="text-uppercase m-0">Quick about</h4>
-								<hr class="my-4">
-								<div class="small text-black-50">
-										Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side, he could even keep the ones he cared about from dying. 
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 mb-3 mb-md-0">
-						<div class="card py-4 h-100">
-							<div class="card-body text-center">
-								<i class="fas fa-mobile-alt text-primary mb-2"></i>
-								<h4 class="text-uppercase m-0">CIS Username</h4>
-								<hr class="my-4">
-								<div class="small text-black-50">jmqb44</div>
+								<a href="https://github.com/Und3rc0v3r/IX_Clothing">UND3RC0V3R - Clothing.IX</a>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				<div class="col-md-4 mb-3 mb-md-0">
+					<div class="card py-4 h-100">
+						<div class="card-body text-center">
+							<i class="fas fa-envelope text-primary mb-2"></i>
+							<h4 class="text-uppercase m-0">Quick about</h4>
+							<hr class="my-4">
+							<div class="small text-black-50">
+								Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the
+								Force to influence the midichlorians to create life… He had such a knowledge of the dark
+								side, he could even keep the ones he cared about from dying.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 mb-3 mb-md-0">
+					<div class="card py-4 h-100">
+						<div class="card-body text-center">
+							<i class="fas fa-mobile-alt text-primary mb-2"></i>
+							<h4 class="text-uppercase m-0">CIS Username</h4>
+							<hr class="my-4">
+							<div class="small text-black-50">jmqb44</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</section>
+		</div>
+	</section>
+
+	<div class="modal fade" id="membersAreaModal" tabindex="-1" role="dialog" aria-labelledby="membersAreaModal"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="membersAreaModalTitle">Members Area</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					We're on a mission to expand our gallery collection.
+					Sign in here and you'll be able to add your very own pictures to the our gallery for the world to
+					see.<br> <br>
+					What you waiting for? Get a camera and strut your stuff model!
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<!-- <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+						data-target="#loginModal">Login/Sign Up</button> -->
+					<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="loginModalTitle">Login / Sign Up</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+				</div>
+			</div>
+		</div>
+	</div> -->
 
 	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/jquery-easing/jquery.easing.min.js"></script>
 	<script

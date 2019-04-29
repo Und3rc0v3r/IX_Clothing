@@ -4,8 +4,8 @@
   "description": "Programming Assessment 2 18/19",
   "main": "server.js",
   "scripts": {
-    "test": "npm start",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/Und3rc0v3r/IX_Clothing#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "node-fetch": "^2.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }

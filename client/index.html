@@ -13,22 +13,21 @@
 	<link href="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/bootstrap/css/bootstrap.min.css"
 		rel="stylesheet">
 	<link href="https://und3rc0v3r.github.io/TeleportationGraphic/lib/css/grayscale.min.css" rel="stylesheet">
-	<!-- <link href="https://und3rc0v3r.github.io/TeleportationGraphic/lib/css/customcss.css" rel="stylesheet"> -->
+
 
 
 	<!-- scripts for bootstrap and als jquery -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
-
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!--<script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/grayscale.js"></script>-->
-	<!-- <script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/customjs.js"></script> -->
 	<script src="index.js"></script>
 
 
 
 	<!-- Google Authentication -->
+	<!-- Dev Version -->
 	<meta name="google-signin-scope" content="profile email">
-	<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+	<meta name="google-signin-client_id"
+		content="558368242475-8rme11bt4bgnu6o9sdgm46ok9chtqlu9.apps.googleusercontent.com">
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </head>
@@ -61,15 +60,14 @@
 					</li>
 
 					<li class="nav-item">
-						<a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#membersAreaModal"
-							style="color: darkslategray;">Member Area</a>
+						<a id="members_area_btn" href="#" class="nav-link" data-toggle="modal" data-target="#membersAreaModal"
+							style="color: whitesmoke;">Member Area</a>
 					</li>
 
 				</ul>
 			</div>
 		</div>
 	</nav>
-
 	<!-- Header -->
 	<header class="masthead"
 		style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url(resources/masthead_img.jpg); background-size: cover;">
@@ -84,6 +82,7 @@
 	</header>
 
 	<div id="sections-container">
+
 	</div>
 	<section id="Contact" class="contact-section bg-black">
 		<div class="container">
@@ -147,43 +146,23 @@
 					We're on a mission to expand our gallery collection.
 					Sign in here and you'll be able to add your very own pictures to the our gallery for the world to
 					see.<br> <br>
+					Once you've signed in, navigate to the gallery and add your images.<br><br>
 					What you waiting for? Get a camera and strut your stuff model!
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					<!-- <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
 						data-target="#loginModal">Login/Sign Up</button> -->
-					<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+					<div class="g-signin2" data-onsuccess="onSignIn" data-dismiss="modal" data-theme="dark"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="loginModalTitle">Login / Sign Up</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
 	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/jquery-easing/jquery.easing.min.js"></script>
-	<script
-		src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script	src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/lib/js/grayscale.min.js"></script>
-	<script src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/jquery/jquery.min.js"></script>
+	<!-- <script src="https://und3rc0v3r.github.io/TeleportationGraphic/vendor/jquery/jquery.min.js"></script> -->
 	<script src="index.js"></script>
 </body>
 

@@ -54,29 +54,102 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// fetch(url)
-// 	.then(
-// 		function (response) {
-// 			if (response.status !== 200) {
-// 				console.warn("Looks like there was a problem. Status Code: " +
-// 					response.status);
-// 				return;
-// 			}
+// This will upload the file after having read it
+function upload() {
+	var elem = document.getElementById("fileinput");
+	var file = elem.files[0];
+	console.log(file);
+	fetch('http://localhost:8090/submit_img', { // Your POST endpoint
+		method: 'POST',
+		body: file // This is your file object
+	})
+		.then(function (response) {
+			console.log(response);
+			response.blob();
+		}) // if the response is a JSON object		
+		.then(
+			success => console.log(success) // Handle the success response object
+		).catch(
+			error => console.log(error) // Handle the error response object
+		);
+}
 
-// 			// Examine the text in the response  
-// 			response.json().then(function (data) {
-// 				var option;
+// Event handler executed when a file is selected
+// const onSelectFile = () => upload(input.files[0]);
 
-// 				for (var i = 0; i < data.length; i++) {
-// 					option = document.createElement('option');
-// 					option.text = data[i].name;
-// 					option.value = data[i].abbreviation;
-// 					dropdown.add(option);
-// 				}
-// 			});
+// // Add a listener on your input
+// // It will be triggered when a file will be selected
+// input.addEventListener('change', onSelectFile, false);
+
+
+var albumBucketName = 'peter.student.general';
+var bucketRegion = 'eu-west-2';
+var IdentityPoolId = 'eu-west-2:9b04f5b5-3353-4981-94c0-ecfd5f58f524';
+
+AWS.config.update({
+	region: bucketRegion,
+	credentials: new AWS.CognitoIdentityCredentials({
+		IdentityPoolId: IdentityPoolId
+	})
+});
+
+var s3 = new AWS.S3({
+	apiVersion: '2006-03-01',
+	params: { Bucket: albumBucketName }
+});
+
+
+function addPhoto() {
+	var albumName = "resources";
+	var files = document.getElementById('photoupload').files;
+	if (!files.length) {
+		return alert('Please choose a file to upload first.');
+	}
+	var file = files[0];
+	var fileName = file.name;
+	var albumPhotosKey = encodeURIComponent(albumName) + '/';
+
+	var photoKey = albumPhotosKey + fileName;
+	s3.upload({
+		Key: photoKey,
+		Body: file,
+		ACL: 'public-read'
+	}, function (err, data) {
+		if (err) {
+			return alert('There was an error uploading your photo: ', err.message);
+		}
+		alert('Successfully uploaded photo.');
+		// viewAlbum(albumName);
+	});
+}
+
+function deletePhoto(albumName, photoKey) {
+	s3.deleteObject({ Key: photoKey }, function (err, data) {
+		if (err) {
+			return alert('There was an error deleting your photo: ', err.message);
+		}
+		alert('Successfully deleted photo.');
+		viewAlbum(albumName);
+	});
+}
+
+// function deleteAlbum(albumName) {
+// 	var albumKey = encodeURIComponent(albumName) + '/';
+// 	s3.listObjects({ Prefix: albumKey }, function (err, data) {
+// 		if (err) {
+// 			return alert('There was an error deleting your album: ', err.message);
 // 		}
-// 	)
-// 	.catch(function (err) {
-// 		console.error("Fetch Error -", err);
+// 		var objects = data.Contents.map(function (object) {
+// 			return { Key: object.Key };
+// 		});
+// 		s3.deleteObjects({
+// 			Delete: { Objects: objects, Quiet: true }
+// 		}, function (err, data) {
+// 			if (err) {
+// 				return alert('There was an error deleting your album: ', err.message);
+// 			}
+// 			alert('Successfully deleted album.');
+// 			listAlbums();
+// 		});
 // 	});
-
+// }

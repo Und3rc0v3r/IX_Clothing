@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
+const login = require("./login");
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("client"));
@@ -12,6 +14,7 @@ var gallery = JSON.parse(gallerytemp);
 var itemTypes = [{ "display_name": "Tops", "id": "top" }, { "display_name": "Jeans", "id": "jeans" }, { "display_name": "Jumpers", "id": "jumpers" }];
 
 app.get("/itemtypes", function (req, resp) {
+	resp.setHeader("Content-type", "application/json");
 	resp.send(itemTypes);
 });
 
@@ -52,36 +55,33 @@ app.get("/gallery", function (req, resp) {
 	resp.send(gallery);
 });
 
-app.post("/addgalleryitem", function (req, resp) {
-	var responseObj = { "status": "", "error": "", "ok": true };
-	var token = req.headers.authorization;
-	var newItem = JSON.parse(req.body.item);
+app.post("/addgalleryitem", async function (req, resp) {
+	try {
+		var newItem = JSON.parse(req.body.item);
+		var token = req.headers.authorization;
+	} catch (error) {
+		console.log(error.messsage);
+		resp.status("400").send(error.messsage);
+		return;
+	}
+	resp.setHeader("Content-Type", "application/json");
+	newItem.id = gallery.length + 1;
+
 	// console.log(token);
 	// console.log(newItem);
-
-	console.log(newItem.id);
-
-	newItem.id = gallery.length + 1;
-	console.log(newItem);
-
-	fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${token}`)
-		.then(function (response) {
-			responseObj.status = response.status;
-			if (!response.ok) {
-				throw new Error(`HTTP error, status = ${response.status}`);
-			}
-			gallery.push(newItem);
-			console.log(gallery);
-			resp.send(responseObj);
-		})
-		.catch(error => {
-			console.log(error);
-			responseObj.error = error.message;
-			responseObj.ok = false;
-			resp.send(responseObj);
-		});
-	
-	console.log(gallery);
+	//console.log(newItem.id);
+	//console.log(newItem);
+	let responseObj = await login(token);
+	if (responseObj.ok != true) {
+		resp.status(responseObj.status).send(responseObj);
+		return;
+	}
+	else {
+		gallery.push(newItem);
+		resp.send(responseObj);
+	}
+	return;
+	//console.log(gallery);
 });
 
 

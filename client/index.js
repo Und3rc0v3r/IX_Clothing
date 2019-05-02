@@ -262,6 +262,8 @@ function signInSuccess(givenProfile) {
 	elem.setAttribute("onclick", "signOut();");
 	elem.removeAttribute("data-target");
 	elem.innerHTML = ` Hi, ${givenProfile.getGivenName()}`;
+	loadGallerySection();
+
 
 }
 function signOut() {

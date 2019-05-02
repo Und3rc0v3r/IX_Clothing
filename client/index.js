@@ -2,8 +2,9 @@
 <<<<<<< HEAD
 =======
 /* eslint-disable no-unused-vars */
->>>>>>> 7d74517c34aeda01903302e5f9304548afe56ac7
 /* eslint-disable quotes */
+>>>>>>> 7d74517c34aeda01903302e5f9304548afe56ac7
+
 //Production Version
 const fetchUrl = "https://ixclothing.herokuapp.com";
 

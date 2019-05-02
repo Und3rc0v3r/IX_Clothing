@@ -43,14 +43,6 @@ var gallerytemp = JSON.stringify(require("./client/gallery.json"));
 var gallery = JSON.parse(gallerytemp);
 
 /**
- * An itemType - created for the seperation of types of clothing
- * @typedef {Object} itemType
- * @property {string} id - The itemType Id, this corrolates to a clothings' type.
- * @property {string} display_name - The display name of the item type, for use on CS
- */
-
-
-/**
  * Declaring & assigning the array of itemType
  * @const {itemTypes[]} itemTypes
  */

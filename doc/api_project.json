@@ -1,0 +1,20 @@
+{
+  "name": "ix_clothing",
+  "version": "0.17.7",
+  "description": "programming assesment 2",
+  "title": "ix_clothing",
+  "url": "https://ixclothing.herokuapp.com",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  },
+  "sampleUrl": false,
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2019-05-02T08:39:37.051Z",
+    "url": "http://apidocjs.com",
+    "version": "0.17.7"
+  }
+}

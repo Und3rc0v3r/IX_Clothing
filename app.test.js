@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const request = require("supertest");
 const app = require("./app");
 
@@ -7,9 +8,7 @@ jest.mock("./login", () => {
 	return jest.fn(() => responseObj);
 });
 
-function serialise(obj) {
-	return Object.keys(obj).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(obj[k])}`).join('&');
-}
+
 
 describe("Testing the clothing RESTful API", () => {
 	test("GET /itemtypes succeeds", () => {

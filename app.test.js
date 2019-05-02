@@ -63,7 +63,7 @@ describe("Testing the clothing RESTful API", () => {
 	});
 
 	test("POST /addgalleryitem works", () => {
-		// create a randomly named potato type
+
 		let galleryItem = {
 			"id": 10,
 			"items_worn": [],
@@ -71,7 +71,7 @@ describe("Testing the clothing RESTful API", () => {
 			"description": "User strutting their stuff in a chic design we intend to create."
 		};
 
-		// add it to the list
+		
 		return request(app)
 			.post("/addgalleryitem", {
 				headers: {
@@ -84,7 +84,7 @@ describe("Testing the clothing RESTful API", () => {
 	});
 
 	test("POST /addgalleryitem returns json", () => {
-		// create a randomly named potato type
+
 		let galleryItem = {
 			"id": 10,
 			"items_worn": [],
@@ -92,7 +92,7 @@ describe("Testing the clothing RESTful API", () => {
 			"description": "User strutting their stuff in a chic design we intend to create."
 		};
 
-		// add it to the list
+		
 		return request(app)
 			.post("/addgalleryitem", {
 				headers: {
@@ -104,5 +104,17 @@ describe("Testing the clothing RESTful API", () => {
 			.expect("Content-type", /json/);
 	});
 
-
+	test("POST /addgalleryitem checks for a gallery item", () => {
+		
+		
+		return request(app)
+			.post("/addgalleryitem", {
+				headers: {
+					"Authorization": "fakeToken",
+					"Content-Type": "application/x-www-form-urlencoded"
+				}
+			})
+			.send("Not correck item")
+			.expect(400);
+	});
 });

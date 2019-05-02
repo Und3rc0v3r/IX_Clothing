@@ -61,7 +61,7 @@ app.post("/addgalleryitem", async function (req, resp) {
 		var token = req.headers.authorization;
 	} catch (error) {
 		console.log(error.messsage);
-		resp.status("400").send(error.messsage);
+		resp.status("400").send("Bad Request");
 		return;
 	}
 	resp.setHeader("Content-Type", "application/json");

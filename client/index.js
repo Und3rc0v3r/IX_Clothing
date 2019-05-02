@@ -1,10 +1,38 @@
 /* eslint-disable no-console */
+<<<<<<< HEAD
+=======
+/* eslint-disable no-unused-vars */
+>>>>>>> 7d74517c34aeda01903302e5f9304548afe56ac7
 /* eslint-disable quotes */
 //Production Version
 const fetchUrl = "https://ixclothing.herokuapp.com";
 
 //Dev & Local version
+<<<<<<< HEAD
 //const fetchUrl = "http://localhost:8090";
+=======
+let profile = null;
+let profile_token = null;
+let createdurl = null;
+//amazon s3 shit
+var albumBucketName = 'peter.student.general';
+var bucketRegion = 'eu-west-2';
+var IdentityPoolId = 'eu-west-2:9b04f5b5-3353-4981-94c0-ecfd5f58f524';
+
+AWS.config.update({
+	region: bucketRegion,
+	credentials: new AWS.CognitoIdentityCredentials({
+		IdentityPoolId: IdentityPoolId
+	})
+});
+
+var s3 = new AWS.S3({
+	apiVersion: '2006-03-01',
+	params: { Bucket: albumBucketName }
+});
+
+
+>>>>>>> 7d74517c34aeda01903302e5f9304548afe56ac7
 
 
 function getClothingList(type) {
@@ -88,16 +116,23 @@ function populateCarousel(gList) {
 		//TODO switch out the json stringify with a description of the item which is passed to the client side from the server
 		//this bit sorts out the postioinal indicators for the carousel
 		var itemsWornList = [item.items_worn[0]["name"], item.items_worn[1]["name"]];
+		var itemsWornList;
+		if (item.items_worn.length > 0) {
+			itemsWornList = [item.items_worn[0]["name"], item.items_worn[1]["name"]].join(", ");
+		}else{
+			itemsWornList = "A Users Creation";
+		}
 
 		if (galleryCount == 0) {
 			addElement("pos-indicators", "li", "pos" + galleryCount, "<li id=\"" + "pos" + galleryCount + "\" data-target=\"#gallery-carousel\" data-slide-to=\"" + galleryCount + "\" class=\"active\"></li>");
 
 			rawhtml = `<div class="carousel-item active">	<img class="d-block w-100" src="${item.url}" alt=" ${galleryCount}"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList.join(", ")}</h5>		<p>${item.description}</p>	 </div></div>`;
+			rawhtml = `<div class="carousel-item active">	<img class="d-block w-100" src="${item.url}" alt="${galleryCount}" height="400" width="800"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList}</h5>		<p>${item.description}</p>	 </div></div>`;
 			addElement("carousel-inner", "div", "gallery-img-" + galleryCount, rawhtml);
 		}
 		else {
 			addElement("pos-indicators", "li", "pos" + galleryCount, "<li id=\"" + "pos" + galleryCount + "\" data-target=\"#gallery-carousel\" data-slide-to=\"" + galleryCount + "\"></li>");
-			rawhtml = `<div class="carousel-item">	<img class="d-block w-100" src="${item.url}" alt=" ${galleryCount}"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList.join(", ")}</h5>		<p>${item.description}</p>	 </div></div>`;
+			rawhtml = `<div class="carousel-item">	<img class="d-block w-100" src="${item.url}" alt="${galleryCount}" height="400" width="800"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList}</h5>		<p>${item.description}</p>	 </div></div>`;
 			addElement("carousel-inner", "div", "gallery-img-" + galleryCount, rawhtml);
 
 		}
@@ -139,7 +174,24 @@ function loadGallerySection() {
 	addElement("sections-container", "section", "Gallery", rawhtml);
 
 	getGalleryList().then(response => populateCarousel(response));
+	if (profile != null) {
+		var buttonHtml = `<button type="button" class="btn btn-primary" onclick="addGalleryImg;">Add Your Image!</button>`;
+		var inputHtml =
+			`<div class="input-group mb-3">
+		<div class="container"><h3>${profile.getGivenName()}, Upload your images.</h3></div>
+		<br/>
+		<div class="input-group-prepend">
+			<button class="btn-secondary" onclick="addGalleryImg()">Upload</button>
+		</div>
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" id="photoupload">
+			<label class="custom-file-label" for="photoupload">Best dimensions are 800px by 400px</label>
+		</div>
+	</div>`;
 
+		addElement("Gallery", "div", "uploadgroup", inputHtml);
+
+	}
 }
 
 function loadContactSection() {
@@ -178,7 +230,7 @@ function addElement(parentId, elementTag, elementId, html) {
 
 function onSignIn(googleUser) {
 	// Useful data for your client-side scripts:
-	var profile = googleUser.getBasicProfile();
+	profile = googleUser.getBasicProfile();
 	console.log("ID: " + profile.getId()); // Don't send this directly to your server!
 	console.log('Full Name: ' + profile.getName());
 	console.log('Given Name: ' + profile.getGivenName());
@@ -187,6 +239,105 @@ function onSignIn(googleUser) {
 	console.log("Email: " + profile.getEmail());
 
 	// The ID token you need to pass to your backend:
-	var id_token = googleUser.getAuthResponse().id_token;
-	console.log("ID Token: " + id_token);
+	profile_token = googleUser.getAuthResponse().id_token;
+	console.log("ID Token: " + profile_token);
+	signInSuccess(profile);
+
+}
+
+function signInSuccess(givenProfile) {
+	var elem = document.getElementById("members_area_btn");
+	elem.setAttribute("data-toggle", "tooltip");
+	elem.setAttribute("data-placement", "bottom");
+	elem.setAttribute("title", "Sign Out");
+	elem.setAttribute("onclick", "signOut();");
+	elem.removeAttribute("data-target");
+	elem.innerHTML = ` Hi, ${givenProfile.getGivenName()}`;
+	loadGallerySection();
+
+
+}
+function signOut() {
+	var auth2 = gapi.auth2.getAuthInstance();
+	auth2.signOut().then(function () {
+		console.log('User signed out.');
+		signOutSuccess();
+	});
+
+}
+
+function signOutSuccess() {
+	var elem = document.getElementById("members_area_btn");
+	elem.setAttribute("data-toggle", "modal");
+	elem.removeAttribute("data-placement");
+	elem.removeAttribute("title");
+	elem.removeAttribute("onclick");
+	elem.setAttribute("data-target", "#membersAreaModal");
+	elem.innerHTML = "Member Area";
+	window.confirm("You've been signed out.");
+	profile = null;
+}
+
+function addGalleryImg() {
+	var albumName = "resources";
+	var files = document.getElementById('photoupload').files;
+	if (!files.length) {
+		return alert('Please choose a file to upload first.');
+	}
+	var file = files[0];
+	var fileName = file.name;
+	var albumPhotosKey = encodeURIComponent(albumName) + '/';
+
+	var photoKey = albumPhotosKey + fileName;
+	createdurl = `https://s3.eu-west-2.amazonaws.com/peter.student.general/${photoKey}`;
+	s3.upload({
+		Key: photoKey,
+		Body: file,
+		ACL: 'public-read'
+	}, function (err, data) {
+		if (err) {
+			return alert('There was an error uploading your photo: ', err.message);
+		}
+		alert('Successfully uploaded photo.');
+		postGalleryItem();
+		
+		// viewAlbum(albumName);
+	});
+}
+
+function postGalleryItem() {
+	try {
+
+		fetch(`${fetchUrl}/addgalleryitem`,
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/x-www-form-urlencoded",
+					"Authorization": profile_token
+				},
+				body: `item=${JSON.stringify(createGalleryitm())}`
+			})
+			.then(function (response) {
+				if (!response.ok) {
+					throw new Error("problem adding image:" + response.code);
+				}
+				loadGallerySection();
+			});
+	} catch (error) {
+		alert("problem: " + error);
+	}
+
+
+}
+
+function createGalleryitm() {
+
+	let item = {
+		"id": 0,
+		"items_worn": [],
+		"url": createdurl,
+		"description": `${profile.getName()} strutting their stuff in a chic design we intend to create.`
+	};
+	return item;
+
 }

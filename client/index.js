@@ -1,17 +1,13 @@
 /* eslint-disable no-console */
-<<<<<<< HEAD
-=======
+
 /* eslint-disable no-unused-vars */
 /* eslint-disable quotes */
->>>>>>> 7d74517c34aeda01903302e5f9304548afe56ac7
-
 //Production Version
 const fetchUrl = "https://ixclothing.herokuapp.com";
 
 //Dev & Local version
-<<<<<<< HEAD
 //const fetchUrl = "http://localhost:8090";
-=======
+
 let profile = null;
 let profile_token = null;
 let createdurl = null;
@@ -31,9 +27,6 @@ var s3 = new AWS.S3({
 	apiVersion: '2006-03-01',
 	params: { Bucket: albumBucketName }
 });
-
-
->>>>>>> 7d74517c34aeda01903302e5f9304548afe56ac7
 
 
 function getClothingList(type) {
@@ -116,7 +109,6 @@ function populateCarousel(gList) {
 	gList.forEach(function (item) {
 		//TODO switch out the json stringify with a description of the item which is passed to the client side from the server
 		//this bit sorts out the postioinal indicators for the carousel
-		var itemsWornList = [item.items_worn[0]["name"], item.items_worn[1]["name"]];
 		var itemsWornList;
 		if (item.items_worn.length > 0) {
 			itemsWornList = [item.items_worn[0]["name"], item.items_worn[1]["name"]].join(", ");

@@ -117,18 +117,19 @@ function populateCarousel(gList) {
 		var itemsWornList;
 		if (item.items_worn.length > 0) {
 			itemsWornList = [item.items_worn[0]["name"], item.items_worn[1]["name"]].join(", ");
+		}else{
+			itemsWornList = "A Users Creation";
 		}
-		itemsWornList = "A Users Creation";
 
 		if (galleryCount == 0) {
 			addElement("pos-indicators", "li", "pos" + galleryCount, "<li id=\"" + "pos" + galleryCount + "\" data-target=\"#gallery-carousel\" data-slide-to=\"" + galleryCount + "\" class=\"active\"></li>");
 
-			rawhtml = `<div class="carousel-item active">	<img class="d-block w-100" src="${item.url}" alt=" ${galleryCount}"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList}</h5>		<p>${item.description}</p>	 </div></div>`;
+			rawhtml = `<div class="carousel-item active">	<img class="d-block w-100" src="${item.url}" alt="${galleryCount}" height="400" width="800"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList}</h5>		<p>${item.description}</p>	 </div></div>`;
 			addElement("carousel-inner", "div", "gallery-img-" + galleryCount, rawhtml);
 		}
 		else {
 			addElement("pos-indicators", "li", "pos" + galleryCount, "<li id=\"" + "pos" + galleryCount + "\" data-target=\"#gallery-carousel\" data-slide-to=\"" + galleryCount + "\"></li>");
-			rawhtml = `<div class="carousel-item">	<img class="d-block w-100" src="${item.url}" alt=" ${galleryCount}"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList}</h5>		<p>${item.description}</p>	 </div></div>`;
+			rawhtml = `<div class="carousel-item">	<img class="d-block w-100" src="${item.url}" alt="${galleryCount}" height="400" width="800"> <div class="carousel-caption d-none d-md-block" style="background: rgba(0, 0, 0, 0.5); border-radius: 25px;	">	<h5>${itemsWornList}</h5>		<p>${item.description}</p>	 </div></div>`;
 			addElement("carousel-inner", "div", "gallery-img-" + galleryCount, rawhtml);
 
 		}
@@ -306,6 +307,7 @@ function addGalleryImg() {
 		}
 		alert('Successfully uploaded photo.');
 		postGalleryItem();
+		
 		// viewAlbum(albumName);
 	});
 }
@@ -326,6 +328,7 @@ function postGalleryItem() {
 				if (!response.ok) {
 					throw new Error("problem adding image:" + response.code);
 				}
+				loadGallerySection();
 			});
 	} catch (error) {
 		alert("problem: " + error);
